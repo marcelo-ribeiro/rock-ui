@@ -4,18 +4,69 @@
 
 // Colors
 //
-$color-primary: #334455 !default;
-$color-secondary: #366261 !default;
+$color-primary: #455A64 !default;
+$color-secondary: #00796B !default;
 
 $color-success: #7cb342  !default;
 $color-information: #3498db  !default;
 $color-warning: #ed9c20  !default;
 $color-error: #c0392b  !default;
 
-$color-gray: #666 !default;
-$color-gray-dark: #333;
-$color-gray-light: #999 !default;
+$color-gray: lighten(#000, 40%) !default;
+$color-gray-dark: lighten(#000, 20%) !default;
+$color-gray-light: lighten(#000, 60%);
 
+//== Light theme
+//
+// Black alpha
+$black_dark: #333;
+$black_dark_alpha: rgba(#000, 0.8);
+
+$black_medium: #666;
+$black_medium_alpha: rgba(#000, 0.6);
+
+$black_light: #999;
+$black_light_alpha: rgba(#000, 0.4);
+
+// Black smoke alpha (Most used to dividers colors)
+$black_smoke_dark: #ccc;
+$black_smoke_dark_alpha: rgba(#000, 0.2);
+
+$black_smoke_medium: #d9d9d9;
+$black_smoke_medium_alpha: rgba(#000, 0.15);
+
+$black_smoke_light: #e6e6e6;
+$black_smoke_light_alpha: rgba(#000, 0.1);
+
+$black_smoke_lighter: #f3f3f3;
+$black_smoke_lighter_alpha: rgba(#000, 0.05);
+
+//== Dark theme
+//
+// White alpha
+$white_dark: #ccc;
+$white_dark_alpha: rgba(#fff, 0.8);
+
+$white_medium: #999;
+$white_medium_alpha: rgba(#fff, 0.6);
+
+$white_light: #666;
+$white_light_alpha: rgba(#fff, 0.4);
+
+// White smoke alpha (Most used to dividers colors)
+$white_smoke_dark: #333;
+$white_smoke_dark_alpha: rgba(#fff, 0.2);
+
+$white_smoke_medium: #262626;
+$white_smoke_medium_alpha: rgba(#fff, 0.15);
+
+$white_smoke_light: #191919;
+$white_smoke_light_alpha: rgba(#fff, 0.1);
+
+$white_smoke_lighter: #0c0c0c;
+$white_smoke_lighter_alpha: rgba(#fff, 0.05);
+
+// White colors
 $color-white-2: darken(#fff, 2%); // #FAFAFA
 $color-white-4: darken(#fff, 4%); // #F5F5F5
 $color-white-5: darken(#fff, 5%); // #F0F0F0
@@ -28,79 +79,126 @@ $border-color-light: $color-white-10;
 
 // Scaffolding
 //
-$body-bg: #fefefe;
+$body-background: #fff;
 
 $text-color: $color-gray-dark;
 $secondary-text-color: $color-gray-light;
 
-$link-color: $color-primary;
-$link-hover-color: darken($link-color, 15%);
-$link-hover-decoration: underline;
+$link-color: inherit !default;
+$link-decoration: underline !default;
+$link-hover-color: inherit !default;
+$link-hover-decoration: underline !default;
 
-$border-radius-large: 50%;
+$border-radius-large: 50% !default;
 
-$transition: all 0.2s;
+$transition-duration: .28s !default;
+$transition-duration-fast: .14s !default;
+$transition-duration-slow: .56s !default;
+$transition-timing-function: cubic-bezier(.4,0,.2,1) !default;
+$transition: all $transition-duration $transition-timing-function !default;
 
 
 // Typography
 //
-$font-family: "Roboto", Arial, sans-serif;
-$font-size: 16px;
-$font-size-large: 1.5rem;
-$font-size-small: 0.875rem;
+$font-family: "Roboto", Arial, sans-serif !default;
+$font-size: 16px !default;
+$font-size-large: 1.5em !default;
+$font-size-small: 0.75em !default;
 
-$font-size-h1: 2.5rem;
-$font-size-h2: 2rem;
-$font-size-h3: 1.5rem;
+$line-height: 1.5 !default;
 
-$line-height: 1.25;
+$baseline: 1.5rem !default;
+$baseunit: 0.5rem !default;
+
 $font-bold: 500;
+$strong-font-weight: $font-bold;
 
-$font-weight-h1: 100;
-$font-weight-h2: 300;
-$font-weight-h3: 400;
-$headings-line-height: 1.1;
+//Headings
+//
+$h1-font-size: 3rem !default;
+$h1-line-height: calc(1em + #{$baseunit}) !default;
+$h1-font-weight: 100 !default;
+
+$h2-font-size: 2.5rem !default;
+$h2-font-weight: 300 !default;
+$h2-line-height: calc(1em + #{$baseunit}) !default;
+
+$h3-font-size: 2rem !default;
+$h3-font-weight: 300 !default;
+$h3-line-height: calc(1em + #{$baseunit}) !default;
+
+$h4-font-size: 1.5rem !default;
+$h4-font-weight: 300 !default;
+$h4-line-height: calc(1em + #{$baseunit}) !default;
+
+$h5-font-size: 1rem !default;
+$h5-font-weight: 400 !default;
+$h5-line-height: calc(1em + #{$baseunit}) !default;
+
+$h6-font-size: 0.75rem !default;
+$h6-font-weight: 400 !default;
+$h6-line-height: calc(1em + #{$baseunit}) !default;
+
+
+//==Media queries breakpoints
+//
+$screen-large-phone-breakpoint: 480px !default;
+$screen-tablet-breakpoint: 640px !default;
+$screen-desktop-breakpoint: 960px !default;
+$screen-large-desktop-breakpoint: 1280px !default;
+$screen-hd-desktop-breakpoint: 1600px !default;
+
+
+// Layout Header
+//
+@import 'layout/variables';
+
+// Navigation
+//
+// @import 'navigation/variables';
 
 
 // Button
 //
-$button-font-weight: 400;
+$button-classname: "btn" !default;
+$button-font-weight: 500 !default;
 
-$button-border: 1px solid rgba(0, 0, 0, 0.0875);
+$button-color: rgba(#000, 0.8) !default;
+$button-background: rgba(#000, 0.0) !default;
+$button-background-hover: rgba(#000, 0.05) !default;
+$button-background-active: rgba(#000, 0.1) !default;
 
-$button-color: #666;
-$button-background: $color-white-2;
-$button-background-hover: darken($button-background,8%);
-$button-background-active: darken($button-background-hover,8%);
-// $button-border-color: $border-color-light;
+$button-default-background: #f3f3f3 !default;
+$button-default-background-hover: darken($button-default-background,4%) !default;
+$button-default-background-active: darken($button-default-background,8%) !default;
 
-$button-primary-color: rgba(#fff, 0.95);
-$button-primary-background: $color-primary;
-$button-primary-background-hover: lighten($button-primary-background,8%);
-// $button-primary-border: darken($button-primary-bg, 4%);
+$button-primary-color: rgba(#fff, 1) !default;
+$button-primary-background: $color-primary !default;
+$button-primary-background-hover: darken($button-primary-background,4%) !default;
+$button-primary-background-active: darken($button-primary-background,8%) !default;
 
-$button-accent-color: rgba(#fff, 0.95);
-$button-accent-background: $color-secondary;
-$button-accent-background-hover: lighten($button-accent-background,8%);
-// $button-accent-border: darken($button-secondary-bg, 4%);
+$button-accent-color: $button-primary-color !default;
+$button-accent-background: $color-secondary !default;
+$button-accent-background-hover: darken($button-accent-background,4%) !default;
+$button-accent-background-active: darken($button-accent-background,8%) !default;
 
-$button-link-disabled-color: $color-gray;
+$button-height: 3rem !default;
+$button-line-height: 1.5rem !default;
+$button-font-size: 1rem !default;
 
-$button-height: 3rem;
-$button-height-small: 2rem;
-$button-height-large: 4rem;
+$button-small-height: 2rem !default;
+$button-small-line-height: 1rem !default;
+$button-small-font-size: 0.75rem !default;
 
-$button-line-height: 1em;
+$button-large-height: 4rem !default;
+$button-large-line-height: 2rem !default;
+$button-large-font-size: 1.5rem !default;
+$button-large-font-weight: 300 !default;
 
-$button-font-size: 1rem;
-$button-font-size-small: 0.875rem;
-$button-font-size-large: 1.125rem;
+$button-padding: 0.5em 1em !default;
+$button-border-radius: 3px !default;
 
-$button-padding-horizontal: 1em;
-$button-margin: 1rem;
-$button-border-radius: 2px;
-
-$button-transition: all 0.2s linear;
+$button-transition: $transition !default;
 
 
 // Tables
@@ -149,81 +247,23 @@ $input-check-checked-border-color: #3CB371;
 $input-check-disabled-border-color: $color-white-15;
 
 
-//== Media queries breakpoints
-//
-//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
-
-// Extra small screen / phone
-//** Deprecated `$screen-xs` as of v3.0.1
-$screen-xs:                  480px !default;
-//** Deprecated `$screen-xs-min` as of v3.2.0
-$screen-xs-min:              $screen-xs !default;
-//** Deprecated `$screen-phone` as of v3.0.1
-$screen-phone:               $screen-xs-min !default;
-
-// Small screen / tablet
-//** Deprecated `$screen-sm` as of v3.0.1
-$screen-sm:                  768px !default;
-$screen-sm-min:              $screen-sm !default;
-//** Deprecated `$screen-tablet` as of v3.0.1
-$screen-tablet:              $screen-sm-min !default;
-
-// Medium screen / desktop
-//** Deprecated `$screen-md` as of v3.0.1
-$screen-md:                  992px !default;
-$screen-md-min:              $screen-md !default;
-//** Deprecated `$screen-desktop` as of v3.0.1
-$screen-desktop:             $screen-md-min !default;
-
-// Large screen / wide desktop
-//** Deprecated `$screen-lg` as of v3.0.1
-$screen-lg:                  1200px !default;
-$screen-lg-min:              $screen-lg !default;
-//** Deprecated `$screen-lg-desktop` as of v3.0.1
-$screen-lg-desktop:          $screen-lg-min !default;
-
-// So media queries don't overlap when required, provide a maximum
-$screen-xs-max:              ($screen-sm-min - 1) !default;
-$screen-sm-max:              ($screen-md-min - 1) !default;
-$screen-md-max:              ($screen-lg-min - 1) !default;
-
-
 //== Grid system
 //
 //## Define your custom responsive grid.
-
-//** Number of columns in the grid.
-$grid-columns:              12 !default;
-//** Padding between columns. Gets divided in half for the left and right.
-$grid-gutter-width:         2rem !default;
-// Navbar collapse
-//** Point at which the navbar becomes uncollapsed.
-$grid-float-breakpoint:     $screen-sm-min !default;
-//** Point at which the navbar begins collapsing.
-$grid-float-breakpoint-max: ($grid-float-breakpoint - 1) !default;
+@import 'grid/variables';
 
 
-//== Container sizes
+// Container sizes
 //
-//## Define the maximum width of `.container` for different screen sizes.
+// Define the maximum width of `.container` for different screen sizes.
+$container-desktop: $screen-desktop-breakpoint !default;
+$container-large-desktop: $screen-large-desktop-breakpoint !default;
+$container-hd-desktop: $screen-hd-desktop-breakpoint !default;
 
-// Small screen / tablet
-$container-tablet: (720px) + ($grid-gutter-width / 1rem) !default;
-//** For `$screen-sm-min` and up.
-$container-sm: $container-tablet !default;
-
-// Medium screen / desktop
-$container-desktop: (940px) + ($grid-gutter-width / 1rem) !default;
-//** For `$screen-md-min` and up.
-$container-md: $container-desktop !default;
-
-// Large screen / wide desktop
-$container-large-desktop: (1140px) + ($grid-gutter-width / 1rem) !default;
-//** For `$screen-lg-min` and up.
-$container-lg: $container-large-desktop !default;
+$text-container-max-width: 640px;
 
 
-//== List
+// List
 //
 $list-items-height: $input-height;
 $list-items-color: $text-color;
@@ -233,8 +273,8 @@ $list-items-hover-bg-color: #789;
 
 // Shadow elevation
 //
-$elevation-1: 2px;
-$elevation-2: 4px;
-$elevation-3: 8px;
-$elevation-4: 16px;
-$elevation-5: 24px;
+$elevation-1: 1px;
+$elevation-2: 2px;
+$elevation-3: 3px;
+$elevation-4: 4px;
+$elevation-5: 5px;

@@ -4,6 +4,7 @@
 
 // Utilities
 @import "mixins/text-overflow";
+@import "mixins/media-query";
 
 // Skins
 @import "mixins/elevation";
@@ -11,5 +12,8 @@
 
 // Layout
 @import "mixins/clearfix";
-@import "mixins/grid";
-@import "mixins/grid-framework";
+@import "layout/mixins";
+@import "grid/mixins";
+
+//Components
+@import "mixins/button";

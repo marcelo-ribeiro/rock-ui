@@ -1,0 +1,18 @@
+$nav-classname: 'navigation' !default;
+$drawer-transition: all .25s ease-out;
+
+$menu-item-height: 48px;
+
+$menu-icon-width: 56px;
+$menu-icon-height: $menu-item-height;
+
+$menu-link-font-size: 1rem;
+$menu-link-color: $color-gray;
+$menu-link-hover-color: #000;
+$menu-link-hover-background: darken( $nav-bg-color, 5% );
+
+$menu-text-line-height: $menu-item-height;
+
+$submenu-link-hover-background: darken( $nav-bg-color, 10% );
+$submenu-link-padding-left: $menu-icon-width;
+$submenu-link-active-font-bold: $font-bold;

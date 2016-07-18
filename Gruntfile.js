@@ -2,28 +2,20 @@ module.exports = function (grunt) {
   grunt.initConfig({
 
     watch: {
+      options: {
+        interrupt: true,
+        livereload: true,
+      },
       // scripts: {
       //   files: [ 'Gruntfile.js', 'js/*.js', 'css/*.css', '!**/all.**' ],
-      //   tasks: ['prod'],
-      //   options: {
-      //     interrupt: true,
-      //     livereload: true
-      //   },
+      //   tasks: ['prod']
       // },
       html: {
-        files: ['**/*.html'],
-         options: {
-          interrupt: true,
-          livereload: true,
-        }
+        files: ['**/*.html']
       },
       css: {
         files: ['scss/**/*.scss'],
-        tasks: ['default'],
-        options: {
-          interrupt: true,
-          livereload: true,
-        }
+        tasks: ['css']
       }
     },
 
@@ -56,8 +48,7 @@ module.exports = function (grunt) {
       options: {
         safe: true,
         processors: [
-          require('autoprefixer-core')({browsers: 'last 2 version'}),
-          // require('csswring')
+          require('autoprefixer-core')({browsers: 'last 2 version'})
         ]
       },
       dist: {
@@ -117,8 +108,8 @@ grunt.loadNpmTasks('grunt-contrib-watch');
 grunt.loadNpmTasks('grunt-contrib-sass');
 grunt.loadNpmTasks('grunt-postcss');
 
-grunt.registerTask( 'default', [ 'sass', 'postcss', 'concat:basic', 'cssmin' ] );
+grunt.registerTask( 'default', [ 'css', 'watch' ] );
 grunt.registerTask( 'css', [ 'sass', 'postcss', 'concat:basic', 'cssmin' ] );
-grunt.registerTask( 'js', [ 'uglify'] );
+grunt.registerTask( 'js', [ 'uglify' ] );
 
 };

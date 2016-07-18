@@ -1,0 +1,49 @@
+//
+// Mixin to help creating custom collored buttons
+//
+// Example:
+// @include make-button-collored ($modifierClass: "primary", $background: $button-primary-background);
+//
+@mixin make-button-collored ($modifierClass, $background, $textColor: white) {
+
+	.#{$button-classname}__#{$modifierClass} {
+		color: $textColor;
+		background-color: $background;
+
+		&:hover,
+		&:focus {
+			background-color: darken($background, 4%);
+		}
+
+		&:active {
+			background-color: darken($background, 8%);
+		}
+	  @content;
+	}
+
+}
+
+//
+// Mixin to help creating custom size buttons
+//
+// Example:
+// @include make-button-size ($modifierClass: "large", $height: 4rem, $fontSize: 1.5rem, $lineHeight: 2rem, $fontWeight: 300);
+//
+// Parameters:
+// $modifierClass (Required)
+// $height (Required)
+// $lineHeight (Optional)
+// $fontSize (Optional)
+// $fontWeight (Optional)
+//
+@mixin make-button-size ( $modifierClass, $height, $lineHeight: $button-line-height, $fontSize: $button-font-size, $fontWeight: $button-font-weight ) {
+
+	.#{$button-classname}__#{$modifierClass} {
+	  min-height: $height;
+	  line-height: $lineHeight;
+	  font-size: $fontSize;
+	  font-weight: $fontWeight;
+	  @content;
+	}
+
+}

@@ -1,0 +1,208 @@
+// layout Style
+//
+// The app wrapper
+.layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+// Header style
+//
+// The layout header
+.layout--header {
+  display: flex;
+  flex-shrink: 0;
+  width: 100%;
+  min-height: $header-height;
+  background: $header-background;
+  user-select: none;
+
+  .layout__fixed_header & {
+    @include elevation($elevation-2);
+  }
+
+  &--container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  &--title {
+    margin: 0;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    padding: 0 1rem;
+    font-size: 1.25rem;
+    font-weight: 400;
+
+    a {
+      &, &:hover, &:focus {
+        text-decoration: none;
+      }
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  &--spacer {
+    flex-grow: 1;
+  }
+
+  &--button {
+    border-radius: 0 !important;
+    @extend %button;
+  }
+
+  // .btn__search {
+  //   @extend .header--btn;
+  //   @media (min-width: $screen-tablet + 1) {
+  //     display: none !important;
+  //   }
+  // }
+
+
+  // &.search_opened ::content {
+  //   @media(max-width: $screen-tablet){
+  //     .group__left,
+  //     .group__right {
+  //       display: none;
+  //     }
+  //   }
+  // }
+
+}
+
+.toggle_navigation {
+  order: -1;
+}
+
+
+// Layout Main style
+//
+// The body of the app
+.layout--main {
+  flex-grow: 1;
+
+  .layout__fixed_header & {
+    overflow-y: scroll;
+  }
+}
+
+
+// Layout Footer style
+//
+// The footer of the app
+.layout--footer {
+  flex-shrink: 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: $footer-color;
+  background-color: $footer-background;
+}
+
+
+// Page style
+//
+// The content wrapper of the pages
+.page {
+  padding-bottom: $baseline * 2;
+
+  &--header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+    padding-top: 1.5rem;
+
+    .container,
+    .container_fluid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+
+    &--icon {
+      align-self: center;
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      margin-right: 1rem;
+    }
+
+    &--title {
+      @extend h1;
+      margin: 0;
+    }
+
+    &--tagline {
+      @extend h4;
+      width: 100%;
+      margin-top: 0.5rem;
+      margin-bottom: 0;
+      color: $color-gray;
+    }
+  }
+
+  &--footer {
+    margin-top: $baseline * 2;
+  }
+
+}
+
+
+// Container widths
+//
+// Set the container width, and override it for fixed navbars in media queries.
+.container {
+  width: 100%;
+  @include container;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: $screen-desktop-breakpoint) {
+    max-width: $container-desktop;
+  }
+  @media (min-width: $screen-large-desktop-breakpoint) {
+    max-width: $container-large-desktop;
+  }
+  @media (min-width: $screen-hd-desktop-breakpoint) {
+    max-width: $container-hd-desktop;
+  }
+}
+
+
+// Fluid container
+//
+// Utilizes the mixin meant for fixed width containers, but without any defined
+// width for fluid, full width layouts.
+.container__fluid {
+  @include container;
+}
+
+// Text container
+//
+// Used to texts containers
+.text_container {
+  @include container();
+  max-width: $text-container-max-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+//
+.section_title {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 1px dashed rgba(#000, 0.15);
+  font-size: 1.5rem;
+  font-weight: 400;
+}

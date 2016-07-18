@@ -3,10 +3,10 @@
 @import "mixins";
 
 // Core Base
-@import "reset";
 @import "base";
+@import "layout/layout";
 @import "typography";
-@import "grid";
+@import "grid/grid";
 @import "forms";
 @import "tables";
 @import "button";

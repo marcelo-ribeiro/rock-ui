@@ -3,7 +3,7 @@
   padding: 0;
   overflow-y: auto;
 
-  @media(min-width: $screen-tablet) {
+  @media(min-width: $screen-tablet-breakpoint) {
     max-height: 480px;
   }
 
