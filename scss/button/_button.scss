@@ -1,10 +1,3 @@
-[type="submit"],
-[type="button"],
-button,
-.#{$button-classname} {
-  @extend %button;
-}
-
 %button {
   display: inline-flex;
   display: -moz-box; // Hack to firefox - display inline-flex not showing icon and text inline
@@ -14,8 +7,7 @@ button,
   line-height: $button-line-height;
   align-items: center;
   vertical-align: middle;
-  justify-content: center;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
   font-family: inherit;
   font-size: $button-font-size;
@@ -24,19 +16,14 @@ button,
   border: none;
   appearance: none;
   background: $button-background;
-  border-radius: $button-border-radius;
+  @extend %box-sizing-border-box;
   transition: $button-transition;
   user-select: none;
   cursor: pointer;
   transform: scale(1);
   will-change: background-color, box-shadow;
 
-  &::-moz-focus-inner {
-    border: 0;
-  }
-
-  &:hover,
-  &:focus {
+  &:hover, &:focus {
     background-color: $button-background-hover;
   }
 
@@ -44,12 +31,27 @@ button,
     transition: none;
     background-color: $button-background-active;
   }
+}
 
+[type="submit"],
+[type="button"],
+button {
+  @extend %button;
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
+
+.#{$button-classname} {
+  @extend %button;
+  justify-content: center;
+  text-align: center;
+  border-radius: $button-border-radius;
 }
 
 
-//Bevel modifiers
-.#{$button-classname}__raised {
+// Bevel modifiers
+%button__raised {
   @include elevation($elevation-2);
 
   &:hover,
@@ -61,20 +63,28 @@ button,
     @include elevation($elevation-1);
   }
 }
+.#{$button-classname}[data-bevel=raised] {
+  @extend %button__raised;
+}
 
 
 // Full width modifier
-.#{$button-classname}__block {
+%button__block {
   width: 100%;
+}
+.#{$button-classname}[data-type=block] {
+  @extend %button__block;
 }
 
 
 // Only icon version modifier
-.#{$button-classname}__icon {
-  padding: 0;
+%button__icon {
   height: 3rem;
   width: 3rem;
   border-radius: 50%;
+}
+.#{$button-classname}[data-type=icon] {
+  @extend %button__icon;
 }
 
 
@@ -84,7 +94,9 @@ button,
   $height: $button-small-height,
   $lineHeight: $button-small-line-height,
   $fontSize: $button-small-font-size
-  );
+  ){
+  text-transform: uppercase;
+};
 
 @include make-button-size (
   $modifierClass: "large",
@@ -95,23 +107,17 @@ button,
   );
 
 
-//Color modifiers
+// Color modifiers
 @include make-button-collored ($modifierClass: "default", $background: $button-default-background, $textColor: $text-color);
 
 @include make-button-collored ($modifierClass: "primary", $background: $button-primary-background);
 
 @include make-button-collored ($modifierClass: "accent", $background: $button-accent-background);
 
-@include make-button-collored ($modifierClass: "pink", $background: crimson);
-
 
 // Icon class of button
 .#{$button-classname}--icon {
-  width: 1.5rem;
-  height: 1.5rem;
-  flex-shrink: 0;
-  fill: currentColor;
-  pointer-events: none;
+  @extend %icon;
 
   // Adding margin left if the icon is positioned to the right;
   .#{$button-classname}--text + & {
@@ -119,15 +125,13 @@ button,
   }
 
   // Icon small size modifier
-  .#{$button-classname}__small & {
-    width: 1.125rem;
-    height: 1.125rem;
+  .#{$button-classname}[data-size=small] & {
+    @extend %icon__small;
   }
 
   // Icon large size modifier
-  .#{$button-classname}__large & {
-    width: 2.25rem;
-    height: 2.25rem;
+  .#{$button-classname}[data-size=large] & {
+    @extend %icon__large;
   }
 }
 

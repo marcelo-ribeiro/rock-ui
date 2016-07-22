@@ -1,6 +1,4 @@
-*,
-*:before,
-*:after {
+%box-sizing-border-box {
   box-sizing: border-box;
 }
 
@@ -97,6 +95,7 @@ img {
   max-width: 100%;
 
   a & {
+    display: block;
     border: none;
   }
 }
@@ -107,6 +106,7 @@ b, strong {
 
 :focus {
   outline: none;
+  // box-shadow: currentColor 0 0 8px inset;
 }
 
 [disabled] {

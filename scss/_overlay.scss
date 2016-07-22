@@ -1,0 +1,29 @@
+%overlay {
+  &:before {
+    content: '';
+    display: block;
+    position: fixed;
+    z-index: 90;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    visibility: hidden;
+    background: $black-light-alpha;
+    will-change: opacity;
+    @extend %animated;
+  }
+
+  &[data-overlay=opened]:before {
+    animation-name: fadeIn;
+  }
+
+  &[data-overlay=closed]:before {
+    animation-name: fadeOut;
+    animation-duration: $transition-duration-fast;
+  }
+}
+
+body {
+  @extend %overlay;
+}

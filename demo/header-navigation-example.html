@@ -8,67 +8,87 @@
 </head>
 <body>
 
-	<header class="header">
+	<div class="layout" data-header-type="fixed">
 
-		<div class="header--container">
 
-			<h1 class="header--title">App Title</h1>
+		<header class="layout--header">
 
-			<!-- <h1 class="header--title">
-				<a href="/">
-					<img src="/wp-content/themes/autodealer/assets/images/feirao-auto.svg" width="180" height="40" alt="Feirão Auto">
-				</a>
-			</h1> -->
+			<div class="layout--header--container" data-align="center">
 
-			<button type="button" class="header--button  toggle_navigation">
-				<svg class="btn--icon" viewBox="0 0 48 48" width="48" height="48"><path d="M6 12h36v4.031h-36v-4.031zM6 25.969v-3.938h36v3.938h-36zM6 36v-4.031h36v4.031h-36z"/></svg>
-			</button>
+				<button type="button" class="layout--header--button" data-toggle="navigation" data-type="icon">
+					<svg class="btn--icon" viewBox="0 0 48 48" width="48" height="48"><path d="M6 12h36v4.031h-36v-4.031zM6 25.969v-3.938h36v3.938h-36zM6 36v-4.031h36v4.031h-36z"/></svg>
+				</button>
 
-			<nav class="navigation">
+				<h1 class="layout--title">App Title</h1>
 
+				<div class="layout--header--spacer"></div>
+
+				<button type="button" class="layout--header--button" data-toggle="search">
+					<svg class="btn--icon" viewBox="0 0 48 48" width="48" height="48"><path d="M19.031 28.031q3.75 0 6.375-2.625t2.625-6.375-2.625-6.375-6.375-2.625-6.375 2.625-2.625 6.375 2.625 6.375 6.375 2.625zM31.031 28.031l9.938 9.938-3 3-9.938-9.938v-1.594l-0.563-0.563q-3.563 3.094-8.438 3.094-5.438 0-9.234-3.75t-3.797-9.188 3.797-9.234 9.234-3.797 9.188 3.797 3.75 9.234q0 4.875-3.094 8.438l0.563 0.563h1.594z"/></svg>
+				</button>
+
+				<button type="button" class="layout--header--button">
+					<svg class="btn--icon" viewBox="0 0 48 48" width="48" height="48"><path d="M31.969 40.031v-8.063h8.063v8.063h-8.063zM31.969 28.031v-8.063h8.063v8.063h-8.063zM19.969 16.031v-8.063h8.063v8.063h-8.063zM31.969 7.969h8.063v8.063h-8.063v-8.063zM19.969 28.031v-8.063h8.063v8.063h-8.063zM7.969 28.031v-8.063h8.063v8.063h-8.063zM7.969 40.031v-8.063h8.063v8.063h-8.063zM19.969 40.031v-8.063h8.063v8.063h-8.063zM7.969 16.031v-8.063h8.063v8.063h-8.063z"/></svg>
+				</button>
+
+			</div>
+
+		</header>
+
+
+		<nav class="navigation">
+			<span class="layout--title">App Title</span>
+
+			<ul class="menu">
+				<li class="menu--item" data-has-submenu="true">
+					<button class="navigation--link" data-toggle="submenu">
+						<svg class="navigation--link--icon" viewBox="0 0 48 48" width="24" height="24"><path d="M19.031 28.031q3.75 0 6.375-2.625t2.625-6.375-2.625-6.375-6.375-2.625-6.375 2.625-2.625 6.375 2.625 6.375 6.375 2.625zM31.031 28.031l9.938 9.938-3 3-9.938-9.938v-1.594l-0.563-0.563q-3.563 3.094-8.438 3.094-5.438 0-9.234-3.75t-3.797-9.188 3.797-9.234 9.234-3.797 9.188 3.797 3.75 9.234q0 4.875-3.094 8.438l0.563 0.563h1.594z"/></svg>
+						<span class="navigation--link--text">Link</span>
+					</button>
+					<div class="submenu">
+						<a class="navigation--link" href="#">Link</a>
+						<a class="navigation--link" href="#">Link</a>
+						<a class="navigation--link" href="#">Link</a>
+					</div>
+				</li>
 				<a class="navigation--link" href="#">Link</a>
 				<a class="navigation--link" href="#">Link</a>
 				<a class="navigation--link" href="#">Link</a>
 				<a class="navigation--link" href="#">Link</a>
 				<a class="navigation--link" href="#">Link</a>
-				<a class="navigation--link" href="#">Link</a>
+			</ul>
 
-				<!-- <ul class="menu">
-					<li class="menu--item menu--item__featured">
-						<a class="navigation--link" href="#">Comprar</a>
-					</li>
-					<li class="menu--item menu--item__featured">
-						<a class="navigation--link" href="#">Vender</a>
-					</li>
-					<li class="menu--item">
-						<a class="navigation--link" href="#">Avaliar</a>
-					</li>
-					<li class="menu--item">
-						<a class="navigation--link" href="#">Revista</a>
-					</li>
-					<li class="menu--item">
-						<a class="navigation--link" href="#">Revendedor</a>
-					</li>
-					<li class="menu--item">
-						<a class="navigation--link" href="#">Entrar</a>
-					</li>
-				</ul> -->
+		</nav>
 
-			</nav>
 
-			<div class="header--spacer"></div>
+		<main class="layout--main">
 
-			<button type="button" class="header--button  toggle_search">
-				<svg class="btn--icon" viewBox="0 0 48 48" width="48" height="48"><path d="M19.031 28.031q3.75 0 6.375-2.625t2.625-6.375-2.625-6.375-6.375-2.625-6.375 2.625-2.625 6.375 2.625 6.375 6.375 2.625zM31.031 28.031l9.938 9.938-3 3-9.938-9.938v-1.594l-0.563-0.563q-3.563 3.094-8.438 3.094-5.438 0-9.234-3.75t-3.797-9.188 3.797-9.234 9.234-3.797 9.188 3.797 3.75 9.234q0 4.875-3.094 8.438l0.563 0.563h1.594z"/></svg>
-			</button>
+			<section class="page">
 
-			<button type="button" class="header--button">
-				<svg class="btn--icon" viewBox="0 0 48 48" width="48" height="48"><path d="M31.969 40.031v-8.063h8.063v8.063h-8.063zM31.969 28.031v-8.063h8.063v8.063h-8.063zM19.969 16.031v-8.063h8.063v8.063h-8.063zM31.969 7.969h8.063v8.063h-8.063v-8.063zM19.969 28.031v-8.063h8.063v8.063h-8.063zM7.969 28.031v-8.063h8.063v8.063h-8.063zM7.969 40.031v-8.063h8.063v8.063h-8.063zM19.969 40.031v-8.063h8.063v8.063h-8.063zM7.969 16.031v-8.063h8.063v8.063h-8.063z"/></svg>
-			</button>
+				<div class="container" data-align="center">
 
-		</div>
+					<header class="page--header">
+						<h1 class="page--header--title">
+							Page Title
+						</h1>
+					</header>
 
-	</header>
+					<p class="text_container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, aperiam et totam enim minima deserunt, sapiente ea veritatis tempore distinctio non quia atque nostrum doloremque! Sed, voluptate autem nisi? Consequuntur.</p>
+
+					<p class="text_container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, aperiam et totam enim minima deserunt, sapiente ea veritatis tempore distinctio non quia atque nostrum doloremque! Sed, voluptate autem nisi? Consequuntur.</p>
+
+				</div>
+
+			</section>
+
+		</main>
+
+
+	</div><!-- End - layout -->
+
+
+	<!-- Scripts -->
+	<script src="../dist/js/script.js"></script>
 
 </body>
 </html>

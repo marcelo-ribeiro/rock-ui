@@ -1,102 +1,122 @@
-@import '../../bedrock/scss/variables';
-@import '../../br-header/src/variables';
-@import 'variables';
+// .open-nav {
+//   display: block;
+//   .has-#{$navigation-classname}__opened & {
+//     display: none;
+//   }
+// }
 
+// .close-nav {
+//   display: none;
+//   .has-#{$navigation-classname}__opened & {
+//     display: block;
+//   }
+// }
 
-.open-nav {
-  display: block;
-  :host.page-nav__opened & {
-    display: none;
-  }
-}
-
-.close-nav {
-  display: none;
-  :host.page-nav__opened & {
-    display: block;
-  }
-}
-
-.overlay {
+.#{$navigation-classname} {
   position: fixed;
-  top: $header-height;
+  // top: $header-height;
+  top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  opacity: 0;
-  transition: $nav-transition;
-
-  :host.page-nav__opened & {
-    z-index: 1000;
-    opacity: 1;
-    background: rgba(#000, 0.5);
-  }
-}
-
-.page-nav {
-  position: fixed;
-  top: $header-height;
-  left: - $nav-width;
   bottom: 0;
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  width: $nav-width;
-  overflow: hidden;
-  background: $nav-bg-color;
+  width: $navigation-width;
+  overflow-y: auto;
+  background: $navigation-bg-color;
   user-select: none;
-  transition: $nav-transition;
+  will-change: transform;
+  transform: translateX(-100%);
 
-  :host.page-nav__opened & {
-    left: 0;
+  transition-property: transform;
+  transition-duration: $transition-duration-fast;
+  transition-timing-function: $transition-timing-function;
+
+  [data-navigation=opened] & {
+    transform: translateX(0);
+    transition-duration: $transition-duration;
   }
 }
 
-.menu {
-  flex-grow: 1;
+
+.#{$navigation-classname}--link,
+%#{$navigation-classname}--link {
+  @extend %button;
   width: 100%;
-  margin: 16px 0;
+  color: $menu-link-color;
+
+  &, &:hover, &:focus, &:active {
+    text-decoration: none;
+  }
+
+  &:hover,
+  &:focus {
+    color: $menu-link-hover-color;
+    background: $menu-link-hover-background;
+  }
+
+}
+
+.#{$navigation-classname}--link--icon {
+  display: inline-flex; // IE10 Fix
+  @extend %icon;
+  margin-right: 1rem;
+}
+
+.#{$navigation-classname}--link--text {
+  display: inline-flex; // IE10 Fix
+  flex-grow: 1;
+  @include text-overflow();
+}
+
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 100%;
+  margin: 0;
   padding: 0;
-  overflow-y: auto;
   list-style-type: none;
 }
 
-.menu--group {
-  min-height: $menu-item-height;
-  display: flex;
-  align-items: center;
+// .menu--group {
+//   min-height: $menu-item-height;
+//   display: flex;
+//   align-items: center;
 
-  &:not(:first-child) {
-    margin-top: 1rem;
-  }
+//   &:not(:first-child) {
+//     margin-top: 1rem;
+//   }
 
-  span {
-    margin: 0 16px;
-    line-height: $menu-item-height;
-    text-transform: uppercase;
-    font-size: .85rem;
-    letter-spacing: .5px;
-    color: $menu-link-color;
-  }
+//   span {
+//     margin: 0 1rem;
+//     line-height: $menu-item-height;
+//     font-size: .85rem;
+//     color: $menu-link-color;
+//     // letter-spacing: .5px;
+//     text-transform: uppercase;
+//   }
 
-  hr {
-    flex-grow: 1;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #fff;
-  }
-}
+//   hr {
+//     flex-grow: 1;
+//     border-top: 1px solid #ccc;
+//     border-bottom: 1px solid #fff;
+//   }
+// }
 
 .menu--item {
   position: relative;
-  min-height: $menu-item-height;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
 
-  &__has_submenu {
+  &[data-has-submenu='true'] {
 
-    &__opened {
+    &[data-submenu='opened'] {
       background: $menu-link-hover-background;
 
-      .menu--link {
+      .#{$navigation-classname}--link {
         color: $menu-link-hover-color;
       }
 
@@ -105,72 +125,17 @@
       }
     }
 
-    .menu--link::after { // Caret icon
+    > .#{$navigation-classname}--link::after {
+      // Create caret icon
       content: '';
       display: inline-flex; // IE10 Fix
-      margin: 3px 1rem 0;
+      margin-left: 1rem;
       border-top: 6px solid;
       border-right: 6px solid transparent;
       border-left: 6px solid transparent;
-      transform: rotate(-45deg);
+      // transform: rotate(-45deg);
     }
   }
-}
-
-.menu--link,
-%menu--link {
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  padding: 0;
-  border: 0;
-  width: 100%;
-  height: $menu-item-height;
-  line-height: $menu-item-height;
-  font-size: $menu-link-font-size;
-  font-weight: 400;
-  color: $menu-link-color;
-  background: none;
-  text-decoration: none;
-  cursor: pointer;
-  transition: $nav-transition;
-
-  &:hover,
-  &:focus {
-    color: $menu-link-hover-color;
-    background: $menu-link-hover-background;
-    outline: none;
-  }
-
-  &.close_menu {
-    height: $header-height;
-    background: $menu-link-hover-background;
-  }
-
-}
-
-.menu--icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: $menu-icon-width;
-  height: $menu-icon-height;
-
-  * {
-    // width: 32px;
-    // height: 32px;
-    fill: currentColor;
-  }
-}
-
-.menu--text {
-  display: inline-flex; // IE10 Fix
-  flex-grow: 1;
-  line-height: $menu-text-line-height;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 
@@ -178,15 +143,14 @@
 //
 .submenu {
   display: none;
-  overflow: hidden;
-  list-style: none;
+  @extend .menu;
 }
 
-.submenu--link {
-  @extend %menu--link;
+.submenu .#{$navigation-classname}--link {
   padding-left: $submenu-link-padding-left;
 
   &:hover,
+  &:focus,
   &.active {
     background: $submenu-link-hover-background;
   }

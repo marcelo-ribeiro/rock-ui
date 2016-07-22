@@ -6,10 +6,10 @@ module.exports = function (grunt) {
         interrupt: true,
         livereload: true,
       },
-      // scripts: {
-      //   files: [ 'Gruntfile.js', 'js/*.js', 'css/*.css', '!**/all.**' ],
-      //   tasks: ['prod']
-      // },
+      scripts: {
+        files: [ 'Gruntfile.js', 'js/*.js' ],
+        tasks: ['js']
+      },
       html: {
         files: ['**/*.html']
       },
@@ -62,16 +62,20 @@ module.exports = function (grunt) {
     },
 
     uglify: {
-      my_target: {
+      static_files: {
+        files: {
+          'dist/js/script.js': [
+            'js/navigation.js'
+          ]
+        }
+      },
+      dynamic_files: {
         files: [{
           expand: true,
           flatten: true,
           mangle: false,
           cwd: 'dist/js/',
-          src: [
-          '*.js',
-          '!*.min.js'
-          ],
+          src: ['*.js', '!*.min.js'],
           dest: 'dist/js/',
           ext: '.min.js'
         }]
@@ -79,7 +83,7 @@ module.exports = function (grunt) {
     },
 
     concat: {
-      basic: {
+      css: {
         files: {
           'dist/css/style.css': [
             '../normalize.css/normalize.css',
@@ -87,16 +91,17 @@ module.exports = function (grunt) {
           ],
         },
       },
-      // extras: {
-      //   options: {
-      //     separator: ';'
-      //   },
-      //   files: {
-      //     'js/all.js': [
-      //     'js/minified/move-top.min.js',
-      //     ],
-      //   }
-      // }
+      js: {
+        options: {
+          separator: ';'
+        },
+        files: {
+          'dist/js/script.js': [
+            'bower_components/angular/angular.min.js',
+            'dist/js/main.js'
+          ],
+        }
+      }
     }
 
   });
@@ -109,7 +114,7 @@ grunt.loadNpmTasks('grunt-contrib-sass');
 grunt.loadNpmTasks('grunt-postcss');
 
 grunt.registerTask( 'default', [ 'css', 'watch' ] );
-grunt.registerTask( 'css', [ 'sass', 'postcss', 'concat:basic', 'cssmin' ] );
-grunt.registerTask( 'js', [ 'uglify' ] );
+grunt.registerTask( 'css', [ 'sass', 'postcss', 'concat:css', 'cssmin' ] );
+grunt.registerTask( 'js', [ 'uglify:static_files' ] );
 
 };

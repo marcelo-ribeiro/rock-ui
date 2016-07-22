@@ -26,15 +26,15 @@
     justify-content: space-around;
   }
 
-  // @media (min-width: $screen-desktop-breakpoint) {
-  //   max-width: $grid-desktop-breakpoint;
-  // }
-  // @media (min-width: $screen-large-desktop-breakpoint) {
-  //   max-width: $grid-large-desktop-breakpoint;
-  // }
-  // @media (min-width: $screen-hd-desktop-breakpoint) {
-  //   max-width: $grid-hd-desktop-breakpoint;
-  // }
+  @include media($screen-desktop-breakpoint) {
+    max-width: $grid-desktop-breakpoint;
+  }
+  @include media($screen-large-desktop-breakpoint) {
+    max-width: $grid-large-desktop-breakpoint;
+  }
+  @include media($screen-hd-desktop-breakpoint) {
+    max-width: $grid-hd-desktop-breakpoint;
+  }
 }
 
 // Fluid grid

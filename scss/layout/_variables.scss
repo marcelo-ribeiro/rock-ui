@@ -1,8 +1,18 @@
+$layout-classname: 'layout' !default;
+
+// Container
+// Define the maximum width of `.container` for different screen sizes.
+$container-desktop: $screen-desktop-breakpoint !default;
+$container-large-desktop: $screen-large-desktop-breakpoint !default;
+$container-hd-desktop: $screen-hd-desktop-breakpoint !default;
+
+$text-container-max-width: 640px;
+
 // Layout Header
-$header-background: $color-white-10 !default;
+$header-background: $color-white-5 !default;
 $header-height: 3.5rem !default;
 $header-link-color: darken($header-background, 40%) !default;
 
 // Layout Footer
 $footer-color: $color-white-10 !default;
-$footer-background: #333 !default;
+$footer-background: $black_dark !default;

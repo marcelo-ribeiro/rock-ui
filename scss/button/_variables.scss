@@ -1,0 +1,39 @@
+$button-classname: "btn" !default;
+$button-font-weight: 500 !default;
+
+$button-color: rgba(#000, 0.8) !default;
+$button-background: rgba(#000, 0.0) !default;
+$button-background-hover: rgba(#000, 0.05) !default;
+$button-background-active: rgba(#000, 0.1) !default;
+
+$button-default-background: #f3f3f3 !default;
+$button-default-background-hover: darken($button-default-background,4%) !default;
+$button-default-background-active: darken($button-default-background,8%) !default;
+
+$button-primary-color: rgba(#fff, 1) !default;
+$button-primary-background: $color-primary !default;
+$button-primary-background-hover: darken($button-primary-background,4%) !default;
+$button-primary-background-active: darken($button-primary-background,8%) !default;
+
+$button-accent-color: $button-primary-color !default;
+$button-accent-background: $color-secondary !default;
+$button-accent-background-hover: darken($button-accent-background,4%) !default;
+$button-accent-background-active: darken($button-accent-background,8%) !default;
+
+$button-height: 3rem !default;
+$button-line-height: 1.25rem !default;
+$button-font-size: 1rem !default;
+
+$button-small-height: 2rem !default;
+$button-small-line-height: 1rem !default;
+$button-small-font-size: 0.75rem !default;
+
+$button-large-height: 4rem !default;
+$button-large-line-height: 1.5rem !default;
+$button-large-font-size: 1.5rem !default;
+$button-large-font-weight: 300 !default;
+
+$button-padding: 0.5em 1em !default;
+$button-border-radius: 3px !default;
+
+$button-transition: $transition !default;
