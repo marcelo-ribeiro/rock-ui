@@ -1,5 +1,5 @@
 //Create container
-@mixin container( $gutter: $grid-gutter ) {
+@mixin container( $gutter: $gutter ) {
   padding-left: $gutter;
   padding-right: $gutter;
 }
