@@ -74,7 +74,7 @@
 
   &--button {
     @extend %button;
-    @extend .btn;
+    @extend #{$button-classname};
     @extend %button__icon;
 
     &[data-toggle=navigation] {
